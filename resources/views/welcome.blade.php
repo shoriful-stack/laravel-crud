@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <title>Document</title>
-    <style type="text/tailwindcss">
-        @layer utilities{
-            .container{
-                @apply px-32 mx-auto;
-            }
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container flex justify-between items-center">
-    <h1 class="text-red-500">Home</h1>
-    <a href="/create" class="bg-green-500 rounded-md px-3 py-2 text-white text-sm">Add New</a>
+    <div class="container d-flex justify-content-between align-items-center">
+    <h1>Home</h1>
+    <a href="/create" class="btn-primary btn">Add New</a>
     </div>
+
+    @if (session("success"))
+        <p>{{ session("success") }}</p>
+    @endif
 </body>
 </html>
