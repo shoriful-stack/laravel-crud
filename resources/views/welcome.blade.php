@@ -8,13 +8,40 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container d-flex justify-content-between align-items-center">
-    <h1>Home</h1>
-    <a href="/create" class="btn-primary btn">Add New</a>
-    </div>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+        <h1>Home</h1>
+        <a href="/create" class="btn-primary btn">Add New</a>
+        </div>
 
-    @if (session("success"))
+        @if (session("success"))
         <p>{{ session("success") }}</p>
     @endif
+
+    <table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Sl No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Image</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach ( $posts as $post)
+    <tr>
+      <th scope="row">{{ $post->id}}</th>
+      <td>{{ $post->name }}</td>
+      <td>{{ $post->description }}</td>
+      <td>{{ $post->image }}</td>
+      <td>
+        <button class="btn btn-primary">Edit</button>
+      </td>
+    </tr>
+    @endforeach
+  </tbody>
+</table>
+    </div>
 </body>
 </html>
