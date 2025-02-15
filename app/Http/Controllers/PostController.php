@@ -6,11 +6,11 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller {
-    function create() {
+    public function create() {
         return view( "create" );
     }
 
-    function store( Request $request ) {
+    public function store( Request $request ) {
         $validated = $request->validate( [
             'name'        => 'required',
             'description' => 'required',
@@ -33,5 +33,10 @@ class PostController extends Controller {
         $post->save();
 
         return redirect()->route( "home" )->with( "success", "post created successfully!!" );
+    }
+
+    public function editData($id){
+        $post = Post::findOrFail($id);
+        return view("edit", ["ourPost" => $post]);
     }
 }

@@ -34,9 +34,9 @@
       <th scope="row">{{ $post->id}}</th>
       <td>{{ $post->name }}</td>
       <td>{{ $post->description }}</td>
-      <td>{{ $post->image }}</td>
+      <td class="w-25 h-25"><img class="w-25 h-25" src="image/{{ $post->image }}" alt=""></td>
       <td>
-        <button class="btn btn-primary">Edit</button>
+        <a href="{{ route("edit", $post->id) }}" class="btn btn-primary">Edit</a>
       </td>
     </tr>
     @endforeach
