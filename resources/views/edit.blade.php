@@ -10,10 +10,10 @@
 <body>
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 class="fs-2">Edit</h1>
+        <h1 class="fs-2">Edit {{ $ourPost->name }}</h1>
         <a href="/" class="btn btn-secondary">Back To Home</a>
         </div>
-    <form class="row g-3" method="POST" action="{{ route("store") }}" enctype="multipart/form-data">
+    <form class="row g-3" method="POST" action="{{ route("update", $ourPost->id) }}" enctype="multipart/form-data">
         @csrf
   <div class="col-12">
     <label for="inputEmail4" class="form-label">Name</label>
