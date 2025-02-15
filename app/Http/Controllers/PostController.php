@@ -64,4 +64,11 @@ class PostController extends Controller {
 
         return redirect()->route("home")->with("success", "Post updated successfully!!");
     }
+
+    public function deleteData($id){
+        $post = Post::findOrFail($id);
+
+        $post->save();
+        return redirect()->route("home")->with("success", "post deleted successfully!!");
+    }
 }

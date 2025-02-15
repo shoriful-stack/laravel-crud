@@ -35,8 +35,9 @@
       <td>{{ $post->name }}</td>
       <td>{{ $post->description }}</td>
       <td class="w-25 h-25"><img class="w-25 h-25" src="image/{{ $post->image }}" alt=""></td>
-      <td>
+      <td class="d-flex justify-content-center py-24">
         <a href="{{ route("edit", $post->id) }}" class="btn btn-primary">Edit</a>
+        <a href="{{ route("delete", $post->id) }}" class="btn btn-warning">Delete</a>
       </td>
     </tr>
     @endforeach
